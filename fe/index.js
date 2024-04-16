@@ -50,6 +50,7 @@ app.listen(port, () => {
   console.log(`Railway public domain: ${process.env.RAILWAY_PUBLIC_DOMAIN}`);
   console.log(`Wassap`);
   console.log(`Commit from main`);
+  console.log(`hiya`);
   console.log(`Frontend server started on ::${port}`);
 });
 
