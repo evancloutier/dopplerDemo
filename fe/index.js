@@ -1,32 +1,33 @@
-const express = require('express');
-const axios = require('axios');
+const express = require("express");
+const axios = require("axios");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/fetch-secret', async (req, res) => {
-    axios.get('http://backend.railway.internal:3000/secret')
+app.get("/fetch-secret", async (req, res) => {
+  axios
+    .get("http://backend.railway.internal:3000/secret")
     .then(response => {
-        res.json(response.data);
+      res.json(response.data);
     })
     .catch(error => {
-        if (error.response) {
-            console.log("Data:", error.response.data);
-            console.log("Status:", error.response.status);
-            console.log("Headers:", error.response.headers);
-        } else if (error.request) {
-            // The request was made but no response was received
-            console.log("Request:", error.request);
-            res.status(500).send("Error fetching secret!");
-        } else {
-            // Something happened in setting up the request that triggered an Error
-            res.status(500).send("Error fetching secret!!!!");
-            console.log("Error:", error.message);
-        }
-    })
+      if (error.response) {
+        console.log("Data:", error.response.data);
+        console.log("Status:", error.response.status);
+        console.log("Headers:", error.response.headers);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log("Request:", error.request);
+        res.status(500).send("Error fetching secret!");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        res.status(500).send("Error fetching secret!!!!");
+        console.log("Error:", error.message);
+      }
+    });
 });
 
-app.get('/', async (req, res) => {
-    res.send(`
+app.get("/", async (req, res) => {
+  res.send(`
         <h1>Secret Rotation Demo 2</h1>
         <button onclick="fetchSecret()">Get Secret</button>
         <div id="secretDisplay"></div>
@@ -46,8 +47,9 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Railway public domain: ${process.env.RAILWAY_PUBLIC_DOMAIN}`)
-    console.log(`Frontend server started on ::${port}`);
+  console.log(`Railway public domain: ${process.env.RAILWAY_PUBLIC_DOMAIN}`);
+  console.log(`Wassap`);
+  console.log(`Frontend server started on ::${port}`);
 });
 
-console.log('some change!')
+console.log("some change!");
