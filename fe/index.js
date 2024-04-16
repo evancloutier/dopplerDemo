@@ -51,6 +51,7 @@ app.listen(port, () => {
   console.log(`Wassap`);
   console.log(`Commit from main`);
   console.log(`hiya`);
+  console.log(`test again`);
   console.log(`Frontend server started on ::${port}`);
 });
 
